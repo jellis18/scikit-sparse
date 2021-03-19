@@ -3,7 +3,6 @@
 [![GitHub Workflow Status (event)](https://img.shields.io/github/workflow/status/jellis18/sksparse/CI%20targets?label=CI%20Tests)](https://github.com/jellis18/sksparse/actions/workflows/ci_test.yml) 
 [![Python Versions](https://img.shields.io/badge/python-3.6%2C%203.7%2C%203.8%2C%203.9-blue.svg)]()
 [![GitHub license](https://img.shields.io/github/license/jellis18/sksparse)](https://github.com/jellis18/sksparse/blob/master/LICENSE.txt)
-[![Documentation Status](https://readthedocs.org/projects/scikit-sparse/badge/?version=latest)](http://scikit-sparse.readthedocs.io/en/latest/?badge=latest)
 
 # sksparse
 
