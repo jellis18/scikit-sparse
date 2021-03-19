@@ -22,8 +22,8 @@ decomposition. Further contributions are welcome!
 DISTNAME = "sksparse"
 DESCRIPTION = "Scikit sparse matrix package"
 LONG_DESCRIPTION = __doc__
-MAINTAINER = ("Justin Ellis",)
-MAINTAINER_EMAIL = ("justin.ellis18@gmail.com",)
+MAINTAINER = "Justin Ellis"
+MAINTAINER_EMAIL = "justin.ellis18@gmail.com"
 URL = "https://github.com/jellis18/scikit-sparse"
 LICENSE = "BSD"
 
