@@ -1,5 +1,3 @@
-#! /usr/bin/env python
-
 # Copyright (C) 2008-2017 The scikit-sparse developers:
 #
 # 2008        David Cournapeau        <cournape@gmail.com>
@@ -21,64 +19,65 @@ So far we have a wrapper for the CHOLMOD library for sparse Cholesky
 decomposition. Further contributions are welcome!
 """
 
-DISTNAME = "scikit-sparse"
-DESCRIPTION = "Scikits sparse matrix package"
+DISTNAME = "sksparse"
+DESCRIPTION = "Scikit sparse matrix package"
 LONG_DESCRIPTION = __doc__
-MAINTAINER = ("Antony Lee",)
-MAINTAINER_EMAIL = ("anntzer.lee@gmail.com",)
-URL = "https://github.com/scikit-sparse/scikit-sparse/"
-LICENSE = "GPL"
+MAINTAINER = ("Justin Ellis",)
+MAINTAINER_EMAIL = ("justin.ellis18@gmail.com",)
+URL = "https://github.com/jellis18/scikit-sparse"
+LICENSE = "BSD"
 
 import sys
 
 import numpy as np
-from setuptools import setup, find_packages, Extension
 from Cython.Build import cythonize
-import versioneer
+from setuptools import Extension, find_packages, setup
 
-if __name__ == "__main__":
-    setup(
-        install_requires=["numpy>=1.13.3", "scipy>=0.19"],
-        python_requires=">=3.6, <3.10",
-        packages=find_packages(),
-        package_data={
-            "": ["test_data/*.mtx.gz"],
-        },
-        test_suite="nose.collector",
-        name=DISTNAME,
-        version=versioneer.get_version(),
-        cmdclass=versioneer.get_cmdclass(),
-        maintainer=MAINTAINER,
-        maintainer_email=MAINTAINER_EMAIL,
-        description=DESCRIPTION,
-        license=LICENSE,
-        url=URL,
-        long_description=LONG_DESCRIPTION,
-        classifiers=[
-            "Development Status :: 3 - Alpha",
-            "Environment :: Console",
-            "Intended Audience :: Developers",
-            "Intended Audience :: Science/Research",
-            "License :: OSI Approved :: BSD License",
-            "Programming Language :: Cython",
-            "Topic :: Scientific/Engineering",
-            "Topic :: Scientific/Engineering :: Mathematics",
-        ],
-        # You may specify the directory where CHOLMOD is installed using the
-        # library_dirs and include_dirs keywords in the lines below.
-        ext_modules=cythonize(
-            Extension(
-                "sksparse.cholmod",
-                ["sksparse/cholmod.pyx"],
-                include_dirs=[
-                    np.get_include(),
-                    sys.prefix + "/include",
-                    # Debian's suitesparse-dev installs to
-                    # /usr/include/suitesparse
-                    "/usr/include/suitesparse",
-                ],
-                library_dirs=[],
-                libraries=["cholmod"],
-            )
-        ),
-    )
+setup(
+    install_requires=["numpy>=1.13.3", "scipy>=0.19"],
+    python_requires=">=3.6, <3.10",
+    packages=find_packages(),
+    package_data={
+        "": ["test_data/*.mtx.gz"],
+    },
+    name=DISTNAME,
+    version="1.0.0",
+    maintainer=MAINTAINER,
+    maintainer_email=MAINTAINER_EMAIL,
+    description=DESCRIPTION,
+    license=LICENSE,
+    url=URL,
+    long_description=LONG_DESCRIPTION,
+    classifiers=[
+        "Development Status :: 3 - Alpha",
+        "Environment :: Console",
+        "Intended Audience :: Developers",
+        "Intended Audience :: Science/Research",
+        "License :: OSI Approved :: BSD License",
+        "Programming Language :: Cython",
+        "Topic :: Scientific/Engineering",
+        "Topic :: Scientific/Engineering :: Mathematics",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+    ],
+    # You may specify the directory where CHOLMOD is installed using the
+    # library_dirs and include_dirs keywords in the lines below.
+    ext_modules=cythonize(
+        Extension(
+            "sksparse.cholmod",
+            ["sksparse/cholmod.pyx"],
+            include_dirs=[
+                np.get_include(),
+                sys.prefix + "/include",
+                # Debian's suitesparse-dev installs to
+                # /usr/include/suitesparse
+                "/usr/include/suitesparse",
+            ],
+            library_dirs=[],
+            libraries=["cholmod"],
+        )
+    ),
+)
