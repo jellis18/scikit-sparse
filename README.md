@@ -13,6 +13,22 @@ they are GPL'ed.
 
 For more details on usage see the original [docs](https://scikit-sparse.readthedocs.org).
 
+## Installation
+
+For pip installs `sksparse` depends on the suite-sparse library which can be installed via:
+```bash
+# mac
+brew install suite-sparse
+
+# debian
+sudo apt-get install libsuitesparse-dev
+```
+
+Then, `skparse` can be installed via pip:
+```bash
+pip install sksparse
+```
+
 ## License
 
 The wrapper code contained in this package is released under a
